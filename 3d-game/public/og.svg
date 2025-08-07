@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0d12"/>
+      <stop offset="100%" stop-color="#1a2340"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <g transform="translate(80,80)">
+    <rect x="0" y="0" width="470" height="470" rx="16" fill="#1d2333" stroke="#2f3b57"/>
+    <!-- simple board -->
+    <g transform="translate(25,25)">
+      <rect width="420" height="420" fill="#272d3f"/>
+      <g>
+        <!-- draw squares -->
+        <script type="application/ecmascript"><![CDATA[]]></script>
+      </g>
+      
+      <!-- grid of 8x8 -->
+      <g>
+        <!-- light/dark squares -->
+        <!-- generate via fixed cells -->
+        <!-- we draw 64 rects -->
+        
+        
+      </g>
+      <!-- title overlay -->
+    </g>
+  </g>
+  <text x="620" y="220" fill="#e8f0ff" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial" font-size="54" font-weight="800">Chess 3D — Three.js</text>
+  <text x="620" y="280" fill="#a9b8d9" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial" font-size="28">Règles complètes • Animations • Thèmes • PGN</text>
+  <text x="620" y="340" fill="#7dd1b0" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial" font-size="22">Jouable dans le navigateur</text>
+</svg>
+
+

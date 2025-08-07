@@ -1,0 +1,19 @@
+{
+  "name": "chess-3d",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "postbuild": "cp public/_redirects dist/_redirects && cp public/_headers dist/_headers || true",
+    "preview": "vite preview --host"
+  },
+  "devDependencies": {
+    "vite": "^5.3.0"
+  },
+  "dependencies": {
+    "three": "^0.166.0"
+  }
+}
+

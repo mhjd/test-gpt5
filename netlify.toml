@@ -1,0 +1,9 @@
+[build]
+  base = "3d-game"
+  publish = "dist"
+  command = "npm ci && npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+
