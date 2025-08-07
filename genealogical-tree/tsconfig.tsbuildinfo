@@ -1,0 +1,1 @@
+{"root":["./src/main.tsx","./src/data/index.ts","./src/state/peoplestore.tsx","./src/state/seedloader.ts","./src/ui/app.tsx","./src/ui/toolbar.tsx","./src/ui/treeview.tsx","./src/ui/person/contextmenu.tsx","./src/ui/person/editpersonmodal.tsx","./src/ui/person/personcard.tsx","./vite.config.ts","./vitest.setup.ts"],"version":"5.9.2"}

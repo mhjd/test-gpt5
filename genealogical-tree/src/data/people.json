@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "rootPersonId": "p1",
+  "people": [
+    { "id": "p1", "firstName": "Alice", "lastName": "Durand", "photoUrl": "", "gender": "female", "parentIds": ["p2", "p3"], "partnerIds": ["p4"], "childIds": ["p5"] },
+    { "id": "p2", "firstName": "Bruno", "lastName": "Durand", "photoUrl": "", "gender": "male", "parentIds": [], "partnerIds": [], "childIds": ["p1"] },
+    { "id": "p3", "firstName": "Claire", "lastName": "Martin", "photoUrl": "", "gender": "female", "parentIds": [], "partnerIds": [], "childIds": ["p1"] },
+    { "id": "p4", "firstName": "David", "lastName": "Leroy", "photoUrl": "", "gender": "male", "parentIds": [], "partnerIds": ["p1"], "childIds": ["p5"] },
+    { "id": "p5", "firstName": "Emma", "lastName": "Durand", "photoUrl": "", "gender": "female", "parentIds": ["p1", "p4"], "partnerIds": [], "childIds": [] }
+  ]
+}
+
+
