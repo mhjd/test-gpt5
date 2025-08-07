@@ -1,7 +1,5 @@
 [build]
-  base = "3d-game"
-  publish = "dist"
-  command = "npm ci && npm run build"
+  # Intention: no global base/publish/command here to support multi-site monorepo.
 
 [build.environment]
   NODE_VERSION = "20"

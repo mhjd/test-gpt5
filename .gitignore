@@ -201,6 +201,12 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+# Node monorepo additions
+genealogical-tree/node_modules/
+genealogical-tree/dist/
+3d-game/node_modules/
+3d-game/dist/
+
 # Marimo
 marimo/_static/
 marimo/_lsp/
