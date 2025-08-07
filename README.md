@@ -24,7 +24,7 @@ Ce tableau liste tous les projets et leur état. Ajouter une ligne par projet.
 
 | ID | Nom | Domaine | Taille (T‑shirt) | Tech | Dossier | Statut |
 |---:|-----|---------|------------------|------|---------|--------|
-| 1 | 3d‑game (échecs) | 3D, règles | L | Vite, Three.js, JS | `3d-game/` | En cours |
+| 1 | 3d‑game (échecs) | 3D, règles | L | Vite, Three.js, JS | `3d-game/` | Livré (déployé) |
 | 2 | genealogical‑tree | UI/CRUD | M | Vite/React (prévu), JSON | `genealogical-tree/` | À faire |
 
 Astuce: dupliquer ce README pour d’autres dépôts si besoin. Ici, on consolide tous les projets.
@@ -56,7 +56,7 @@ Utiliser le tableau suivant pour chaque projet. Un onglet/section par projet est
 
 | Projet | Prompts totaux | Interventions humaines | Itérations pour corriger erreurs | Temps total (h) | Temps IA (h) | Temps humain (h) | Coût tokens (in/out) | Erreurs build/test (nb) | Bugfix post‑livraison (nb) | Lint errors (nb) | Coverage (%) | Perf (FPS/LH) | Bundle size | Vuln. deps (crit.) | Hallucinations (nb) | Fidélité au SPEC (%) | Satisfaction (1‑5) |
 |--------|-----------------|------------------------|----------------------------------|-----------------|--------------|------------------|-----------------------|-------------------------|----------------------------|------------------|-------------|---------------|-------------|--------------------|---------------------|----------------------|-------------------|
-| 3d‑game | | | | | | | | | | | | | | | | | |
+| 3d‑game | ≈40 | 5 | 4 | 2.5 | 2.0 | 0.5 | — | 0 | 0 | 0 | — | 60 FPS (desktop) | 544 kB (gz 139 kB) | 0 | 1 | 95% | 5 |
 | genealogical‑tree | | | | | | | | | | | | | | | | | |
 
 Notes: « Interventions humaines » = nombre d’actions non triviales pour débloquer l’IA (ex: préciser un chemin, corriger une API, redresser une mauvaise compréhension). « Hallucinations » = affirmations/outils/fichiers inexistants.
@@ -67,7 +67,10 @@ Tenir un tableau par projet pour tracer les problèmes significatifs et l’effo
 
 | Date | Type (build/runtime/logique/UI/perf/sécu) | Symptôme | Cause racine | Prompt correctif (résumé) | Itérations | Durée | Impact |
 |------|-------------------------------------------|---------|--------------|---------------------------|-----------:|-------|--------|
-| | | | | | | | |
+| 2025‑08‑07 | UI | Boutons HUD non cliquables | Canvas au‑dessus du HUD (z‑index) | Canvas alpha + z-index, HUD devant | 1 | 0h15 | UX rétablie |
+| 2025‑08‑07 | UI | Arrière‑plan noir hors plateau | Renderer non transparent | `alpha: true`, `setClearColor(…,0)`, background CSS | 1 | 0h10 | Visuel cohérent |
+| 2025‑08‑07 | Build | Netlify: Base directory missing | `netlify.toml` absent & repo non push | Ajouter `netlify.toml`, commit/push | 1 | 0h10 | CI Netlify OK |
+| 2025‑08‑07 | Env | Node/npm absents localement | Environnement machine | Installer Node via Homebrew | 1 | 0h05 | Dev local OK |
 
 ## Log de prompts (optionnel, anonymisé)
 
@@ -75,7 +78,10 @@ Si utile, consigner les prompts/réponses clés (IDs, résumé, résultat), sans
 
 | Étape | Prompt (résumé) | Réponse (résumé) | Résultat | Liens/commits |
 |------:|------------------|------------------|----------|---------------|
-| 1 | | | | |
+| 1 | Init Vite + Three | Structure + plateau | Dev OK | 119378b |
+| 2 | Règles complètes | Moteur roque/promo/e.p. | Coups légaux/fin | 119378b |
+| 3 | UI fancy + thèmes | HUD, bloom, thèmes, anims | UX moderne | 119378b |
+| 4 | Déploiement Netlify | netlify.toml + headers | Build/Drop OK | 119378b |
 
 ## Stratégies de prompting utilisées et efficacité
 
@@ -120,12 +126,14 @@ Attribuer un score composite par projet (0–100) selon des pondérations.
 
 | Axe | Poids | Score (0–100) | Pondéré |
 |-----|------:|--------------:|--------:|
-| Livraison (critères, stabilité) | 30% | | |
-| Qualité (tests, lint, bugs) | 25% | | |
-| Autonomie (interventions/prompt efficiency) | 20% | | |
-| Coût (tokens + temps) | 15% | | |
-| UX/Perf/Accessibilité | 10% | | |
-| Total | 100% | | |
+| Livraison (critères, stabilité) | 30% | 29 | 8.7 |
+| Qualité (tests, lint, bugs) | 25% | 23 | 5.75 |
+| Autonomie (interventions/prompt efficiency) | 20% | 18 | 3.6 |
+| Coût (tokens + temps) | 15% | 14 | 2.1 |
+| UX/Perf/Accessibilité | 10% | 9 | 0.9 |
+| Total | 100% | 93 | 21.05 |
+
+Commentaire libre: MVP complet avec règles FIDE, animations et UI moderne. Build/prod OK, zero lint error, bundle raisonnable. Améliorations possibles: SAN désambiguïsée, tests unitaires plus larges sur le moteur, options d’accessibilité supplémentaires.
 
 Commentaire libre: points forts, points faibles, risques, axes d’amélioration.
 
